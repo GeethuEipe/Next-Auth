@@ -1,0 +1,37 @@
+[
+  {
+    "username": "geethu",
+    "email": "geethu@gmail.com",
+    "password": "$2a$10$12hKmB1jEu9fGr8DcIlmQuKPZKl4O2g/ll2VLy5XC7xpWglOIFHq."
+  },
+  {
+    "username": "Reena",
+    "email": "reena@gmail.com",
+    "password": "$2a$10$u/Nnje32akdd21Jj4cvxiOlWsxWsJSKwIeNaVGCuV8BCVBuCoCudy"
+  },
+  {
+    "username": "eipe",
+    "email": "eipe@gmail.com",
+    "password": "$2a$10$O9fRsE1K2sHgv4k7ZhRjd..3R/6GLsZe9TAo7AnQpHiktz/U4hEq6"
+  },
+  {
+    "username": "jithin",
+    "email": "jithin@gmail.com",
+    "password": "$2a$10$72DtniUIp3IBLln.A/wfKOwdnYOmzbZ1NcNCuhq5E7A4Dh47qugz."
+  },
+  {
+    "username": "ammu",
+    "email": "ammu@gmail.com",
+    "password": "$2a$10$CdVd7sd8kchq2IV/WZ4iJOWKGUxrkGicQbZbxdqvxAPH6aEgNTUT6"
+  },
+  {
+    "username": "Neethu",
+    "email": "neethu@gmail.com",
+    "password": "$2a$10$ImbbV6nnVNCtoO1lYQWg/.TvazK0qrzRSahUJDtZc8NY46P2Xyvc2"
+  },
+  {
+    "username": "Neeraj",
+    "email": "neeraj@gmail.com",
+    "password": "$2a$10$9U27GYn4w106ACmw5IR2i.Lfh6h9gblSRYf9N1XqcSzh8S4zYGr6W"
+  }
+]
