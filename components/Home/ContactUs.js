@@ -25,7 +25,6 @@ const ContactUs = () => {
               </button>
             </Link>
           </div>
-
           <div className="row col-md-4 col-md-offset-3">
             <form onSubmit={''} className="container mt-4">
               <div className="d-flex gap-2 form-group mb-3">

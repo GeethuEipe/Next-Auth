@@ -8,7 +8,7 @@ function BackgroundWrapper({ children, className }) {
         backgroundImage: "url('/images/bg10.jpeg')",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        minHeight: '100vh', // Adjusted to minHeight
+        minHeight: '100vh',
         width: '100%'
       }}>
       {children}

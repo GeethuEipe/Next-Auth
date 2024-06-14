@@ -1,11 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
-import Image from 'next/image'
 import Link from 'next/link'
 import { SiNextdotjs } from 'react-icons/si'
-import { SiTheboringcompany } from 'react-icons/si'
 
 const Navbar = () => {
   return (
@@ -23,14 +19,6 @@ const Navbar = () => {
       <div className="container">
         <Link href="/" className="navbar-brand">
           <SiNextdotjs style={{ width: '50px', height: '50px' }} />
-          {/* <SiTheboringcompany style={{ width: '100px', height: '100px' }} /> */}
-          {/* <Image
-            src={'/images/logo.jpg'}
-            alt="logo"
-            width={100}
-            height={100}
-            priority
-          /> */}
         </Link>
         <button
           className="navbar-toggler"

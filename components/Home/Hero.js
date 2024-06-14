@@ -37,14 +37,6 @@ const Hero = () => {
                 Send
               </button>
             </div>
-            {/* <div className="d-grid gap-3 d-md-flex justify-content-md-start">
-              <button className="btn btn-outline-light py-2 rounded-2 col-md-3">
-                Sign Up
-              </button>
-              <button className="btn btn-outline-light py-2 rounded-2 col-md-3">
-                Login
-              </button>
-            </div> */}
           </div>
         </div>
         <div className="col-md-6">
@@ -63,5 +55,4 @@ const Hero = () => {
     </div>
   )
 }
-
 export default Hero

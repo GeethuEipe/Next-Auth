@@ -1,10 +1,9 @@
-import AboutUs from '../components/AboutUs'
+import AboutUs from '../components/Home/AboutUs'
 import BackgroundWrapper from '../components/BackgroundWrapper'
-import ContactUs from '../components/ContactUs'
-import Footer from '../components/Footer'
-import Hero from '../components/Hero'
-import Image from 'next/image'
-import Navbar from '../components/Navbar'
+import ContactUs from '../components/Home/ContactUs'
+import Footer from '../components/Home/Footer'
+import Hero from '../components/Home/Hero'
+import Navbar from '../components/Home/Navbar'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -17,17 +16,7 @@ export default function Home() {
         </div>
       </BackgroundWrapper>
       <AboutUs />
-      {/* <div
-        className="bg-image justify-content-end"
-        style={{
-          backgroundImage: "url('/images/contact.jpeg')",
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          height: '100vh',
-          width: '100%'
-        }}> */}
       <ContactUs />
-      {/* </div> */}
       <Footer />
     </main>
   )

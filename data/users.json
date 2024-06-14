@@ -33,5 +33,10 @@
     "username": "Neeraj",
     "email": "neeraj@gmail.com",
     "password": "$2a$10$9U27GYn4w106ACmw5IR2i.Lfh6h9gblSRYf9N1XqcSzh8S4zYGr6W"
+  },
+  {
+    "username": "josy",
+    "email": "josy@gmail.com",
+    "password": "$2a$10$Dq60iI4BTYZsmRCoVqNtHu.vgLs1Vdv8LF6p92mwZ3XeeCEQQbbd."
   }
 ]

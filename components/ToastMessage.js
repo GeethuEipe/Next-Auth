@@ -12,7 +12,6 @@ const ToastMessage = ({ show, onClose, message, type }) => {
       return () => clearTimeout(timer)
     }
   }, [show, onClose])
-
   return (
     <ToastContainer position="top-end" className="p-3">
       <Toast show={show} onClose={onClose} bg={type}>
@@ -21,5 +20,4 @@ const ToastMessage = ({ show, onClose, message, type }) => {
     </ToastContainer>
   )
 }
-
 export default ToastMessage
