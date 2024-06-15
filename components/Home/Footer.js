@@ -6,7 +6,7 @@ import { SiNextdotjs } from 'react-icons/si'
 
 const Footer = () => {
   return (
-    <footer className="footer bg-light text-center">
+    <footer className="footer bg-light text-center p-5">
       <div className="container">
         <div className="row">
           <div className="col-md-4 mb-3 mb-md-0">
@@ -28,17 +28,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/about" className="text-muted">
+                <a href="/" className="text-muted">
                   About
                 </a>
               </li>
               <li>
-                <a href="/services" className="text-muted">
+                <a href="/" className="text-muted">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-muted">
+                <a href="/" className="text-muted">
                   Contact
                 </a>
               </li>

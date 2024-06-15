@@ -105,15 +105,6 @@ const Register = () => {
             </div>
           </form>
         </div>
-        {/* <div className="col-md-5 col-md-offset-3 mt-5">
-        <p>Welcome Back!</p>
-        <p>If you already have an account, please log in.</p>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary bg-black">
-            Log in
-          </button>
-        </div>
-      </div> */}
       </div>
     </>
   )

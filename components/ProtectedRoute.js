@@ -1,34 +1,44 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import { useRouter } from 'next/navigation'
 
 const ProtectedRoute = ({ children }) => {
   const router = useRouter()
+  const [token, setToken] = useState(null)
+
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    // Check if token exists
-    if (!token) {
-      router.push('/login')
-      return // Exit early if no token exists
-    }
-    try {
-      const decoded = JSON.parse(atob(token.split('.')[1])) // Decode token payload
-      const tokenExp = decoded.exp // Expiry time in seconds since epoch
-      const currentTime = Math.floor(Date.now() / 1000) // Current time in seconds since epoch
-      // Check if token has expired
-      if (tokenExp < currentTime) {
-        // Token expired, remove from local storage
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token')
+      setToken(storedToken)
+
+      if (!storedToken) {
+        router.push('/login')
+        return
+      }
+
+      try {
+        const decoded = JSON.parse(atob(storedToken.split('.')[1]))
+        const tokenExp = decoded.exp
+        const currentTime = Math.floor(Date.now() / 1000)
+
+        if (tokenExp < currentTime) {
+          localStorage.removeItem('token')
+          router.push('/login')
+        }
+      } catch (error) {
+        console.error('Error decoding token:', error)
         localStorage.removeItem('token')
         router.push('/login')
       }
-    } catch (error) {
-      console.error('Error decoding token:', error)
-      // Handle decoding error or invalid token (optional)
-      localStorage.removeItem('token')
-      router.push('/login')
     }
   }, [router])
+
+  if (!token) {
+    return null // or a loading spinner
+  }
+
   return <>{children}</>
 }
 

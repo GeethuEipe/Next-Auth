@@ -2,11 +2,26 @@
 
 import Link from 'next/link'
 import { SiNextdotjs } from 'react-icons/si'
-
+import { useState } from 'react'
 const Navbar = () => {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true)
+  const toggleNavCollapsed = () => {
+    setIsNavCollapsed(!isNavCollapsed)
+  }
+  const handleSmoothScroll = (event, targetId) => {
+    event.preventDefault()
+    const element = document.getElementById(targetId)
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 70, // Adjust offset as needed
+        behavior: 'smooth'
+      })
+      setIsNavCollapsed(true)
+    }
+  }
   return (
     <nav
-      className="navbar navbar-expand-lg fixed-top navbar-dark mb-4 py-3"
+      className="navbar navbar-expand-lg fixed-top navbar-dark py-3"
       style={{
         background: 'transparent',
         border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -16,7 +31,7 @@ const Navbar = () => {
         borderBottomRightRadius: '20px',
         padding: '2px'
       }}>
-      <div className="container">
+      <div className="container-xl">
         <Link href="/" className="navbar-brand">
           <SiNextdotjs style={{ width: '50px', height: '50px' }} />
         </Link>
@@ -24,15 +39,37 @@ const Navbar = () => {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown">
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded={!isNavCollapsed ? true : false}
+          aria-label="Toggle navigation"
+          onClick={toggleNavCollapsed}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}
+          id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto d-flex align-items-center">
-            <NavItem href="/#about" text="ABOUT" />
-            <NavItem href="/#services" text="SERVICES" />
-            <NavItem href="/#team" text="TEAM" />
-            <NavItem href="/#contact" text="CONTACT" />
+            <NavItem
+              href="/#about"
+              text="ABOUT"
+              handleSmoothScroll={handleSmoothScroll}
+            />
+            <NavItem
+              href="/#services"
+              text="SERVICES"
+              handleSmoothScroll={handleSmoothScroll}
+            />
+            <NavItem
+              href="/#team"
+              text="TEAM"
+              handleSmoothScroll={handleSmoothScroll}
+            />
+            <NavItem
+              href="/#contact"
+              text="CONTACT"
+              handleSmoothScroll={handleSmoothScroll}
+            />
             <li className="nav-item">
               <Link href="/register" className="nav-link fw-medium" passHref>
                 <button
@@ -48,19 +85,7 @@ const Navbar = () => {
     </nav>
   )
 }
-// Navigation item component with smooth scroll
-const NavItem = ({ href, text }) => {
-  // Function to handle smooth scroll
-  const handleSmoothScroll = (event, targetId) => {
-    event.preventDefault()
-    const element = document.getElementById(targetId)
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 70, // Adjust offset as needed
-        behavior: 'smooth'
-      })
-    }
-  }
+const NavItem = ({ href, text, handleSmoothScroll }) => {
   return (
     <li className="nav-item">
       <a

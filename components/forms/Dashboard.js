@@ -1,32 +1,46 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 import { IoHomeOutline } from 'react-icons/io5'
 import { IoMdHelpCircleOutline } from 'react-icons/io'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { LuMessageSquare } from 'react-icons/lu'
 import { MdOutlineSettings } from 'react-icons/md'
 import { TbLogout } from 'react-icons/tb'
-import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
   const router = useRouter()
-  const token = localStorage.getItem('token')
-  const username = localStorage.getItem('username')
+  const [token, setToken] = useState(null)
+  const [username, setUsername] = useState(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token')
+      const storedUsername = localStorage.getItem('username')
+      setToken(storedToken)
+      setUsername(storedUsername)
+
+      if (!storedToken || !storedUsername) {
+        router.push('/login')
+        return
+      }
+    }
+  }, [router])
+
+  if (!token || !username) {
+    return null // or a loading spinner
+  }
+
+  const capitalizeFirstLetter = string => {
+    return string?.charAt(0).toUpperCase() + string?.slice(1)
+  }
+
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
     router.push('/')
-  }
-  useEffect(() => {
-    // Check if user is logged in; if not, redirect to login page
-    if (!token || !username) {
-      router.push('/login')
-    }
-  }, [router, token, username])
-  // Function to capitalize the first letter of a string
-  const capitalizeFirstLetter = string => {
-    return string?.charAt(0).toUpperCase() + string?.slice(1)
   }
 
   return (
@@ -48,21 +62,23 @@ const Dashboard = () => {
         }}>
         <ul className="nav flex-column gap-4">
           <div className="mb-4 container">
-            <div className="d-flex gap-3">
-              <img
-                src={`https://ui-avatars.com/api/?name=${username}`}
-                alt="person"
-                style={{
-                  borderRadius: '50%',
-                  height: '60px',
-                  width: '60px',
-                  objectFit: 'cover'
-                }}
-              />
-              <p className="mt-2 fw-bold" style={{ fontSize: '24px' }}>
-                {capitalizeFirstLetter(username)}
-              </p>
-            </div>
+            {username && (
+              <div className="d-flex gap-3">
+                <img
+                  src={`https://ui-avatars.com/api/?name=${username}`}
+                  alt="person"
+                  style={{
+                    borderRadius: '50%',
+                    height: '60px',
+                    width: '60px',
+                    objectFit: 'cover'
+                  }}
+                />
+                <p className="mt-2 fw-bold" style={{ fontSize: '24px' }}>
+                  {capitalizeFirstLetter(username)}
+                </p>
+              </div>
+            )}
           </div>
           <NavItem icon={<IoHomeOutline />} text="Home" />
           <NavItem icon={<IoMdNotificationsOutline />} text="Notification" />
@@ -72,12 +88,13 @@ const Dashboard = () => {
           <NavItem icon={<TbLogout />} text="Logout" onClick={logout} />
         </ul>
       </nav>
-
-      <div className="container-fluid text-center p-4">
-        <p className="text-white fw-bold" style={{ fontSize: '30px' }}>
-          Welcome to your dashboard, {capitalizeFirstLetter(username)}!
-        </p>
-      </div>
+      {username && (
+        <div className="container-fluid text-center p-4">
+          <p className="text-white fw-bold" style={{ fontSize: '30px' }}>
+            Welcome to your dashboard, {capitalizeFirstLetter(username)}!
+          </p>
+        </div>
+      )}
     </div>
   )
 }
