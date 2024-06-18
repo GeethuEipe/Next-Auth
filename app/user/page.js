@@ -1,19 +1,13 @@
-import React from 'react'
+import BackgroundWrapper from '../../components/BackgroundWrapper'
 import UserList from '../../components/forms/UserList'
+import styles from '../page.module.css'
 
-const User = async () => {
+export default function Home() {
   return (
-    <div
-      className="bg-image justify-content-end"
-      style={{
-        backgroundImage: "url('/images/bg10.jpeg')",
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        height: '100vh',
-        width: '100%'
-      }}>
-      <UserList />
-    </div>
+    <main>
+      <BackgroundWrapper className={styles.main}>
+        <UserList />
+      </BackgroundWrapper>
+    </main>
   )
 }
-export default User

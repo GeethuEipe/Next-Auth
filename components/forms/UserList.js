@@ -20,14 +20,13 @@ const UserTable = () => {
     <div className="container content">
       <table className="user-table">
         <thead>
-          {/* <h1>List User Data</h1> */}
+          List User Data
           <tr>
             <th>username</th>
             <th>email</th>
             <th>password</th>
           </tr>
         </thead>
-
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
@@ -45,6 +44,7 @@ const UserTable = () => {
           background-color: #f9f9f9;
           border-radius: 8px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          margin-top: 60px;
         }
         h1 {
           text-align: center;
