@@ -20,47 +20,27 @@ const UserTable = () => {
     <div className="container content">
       <table className="user-table">
         <thead>
-          <h1>List User Data</h1>
+          {/* <h1>List User Data</h1> */}
           <tr>
             <th>username</th>
             <th>email</th>
             <th>password</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td>Geethu</td>
-            <td>geethu@gmail.com</td>
-            <td>Geethu@00</td>
-          </tr>
-          <tr>
-            <td>Geethu</td>
-            <td>geethu@gmail.com</td>
-            <td>Geethu@00</td>
-          </tr>
-          <tr>
-            <td>Geethu</td>
-            <td>geethu@gmail.com</td>
-            <td>Geethu@00</td>
-          </tr>
-          <tr>
-            <td>Geethu</td>
-            <td>geethu@gmail.com</td>
-            <td>Geethu@00</td>
-          </tr>
+          {users.map((user, index) => (
+            <tr key={index}>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+              <td>{user.password}</td>
+            </tr>
+          ))}
         </tbody>
-        {/* <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-              </tr>
-            ))}
-          </tbody> */}
       </table>
       <style jsx>{`
         .content {
-          max-width: 800px;
+          max-width: 1000px;
           padding: 20px;
           background-color: #f9f9f9;
           border-radius: 8px;
