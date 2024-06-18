@@ -3,7 +3,7 @@ import path from 'path'
 
 export default function handler(req, res) {
   if (req.method === 'GET') {
-    const filePath = path.resolve(process.cwd(), 'data', 'users.json')
+    const filePath = path.resolve(process.cwd(), 'data', './data/users.json')
     const fileData = fs.readFileSync(filePath)
     const users = JSON.parse(fileData)
     res.status(200).json(users)

@@ -2,16 +2,15 @@
 
 import React, { useEffect, useState } from 'react'
 
-const UserList = () => {
+const UserTable = () => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch('/api/users')
+      const response = await fetch('/api/userslist')
       const data = await response.json()
       setUsers(data)
     }
-
     fetchUsers()
   }, [])
 
@@ -97,4 +96,4 @@ const UserList = () => {
     </div>
   )
 }
-export default UserList
+export default UserTable

@@ -1,5 +1,5 @@
 import React from 'react'
-import UserList from '../../components/forms/UserTable'
+import UserList from '../../components/forms/UserList'
 
 const User = async () => {
   return (
