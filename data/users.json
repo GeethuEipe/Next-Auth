@@ -43,5 +43,10 @@
     "username": "christy",
     "email": "christy@gmail.com",
     "password": "$2a$10$K4Bxe8LeCqFO.oKQBWXP6ejiOYBDhpYz3OgLJF26aISgB9mCXzmd."
+  },
+  {
+    "username": "arun",
+    "email": "arun@gmail.com",
+    "password": "$2a$10$KLm5yMOVjv.xRQ39Abvwd.MCubQpBELZwPAeSiHWAiR/BJo9mn/zq"
   }
 ]
